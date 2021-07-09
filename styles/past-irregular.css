@@ -16,9 +16,9 @@ html, body {
   min-width: 600px;
   max-width: 1000px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   font-family: "Roboto";
-  font-size:calc(20px + .8vw);
+  font-size:calc(16px + .8vw);
   padding: 5px;
   gap: 5px;
   background-color: black;
