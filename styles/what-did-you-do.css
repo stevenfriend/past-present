@@ -1,0 +1,102 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.container {
+  width: 100vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin: 40px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size:calc(30px + 1vw);
+  text-align: center;
+}
+
+/* div {
+  border: solid black 1px;
+} */
+
+.player {
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 50vh;
+  margin-bottom: 50px;
+  filter: drop-shadow(.3vmin .3vmin .3vmin rgba(0, 0, 0, 0.5));
+}
+
+.player-A {
+  background-color: red;
+}
+
+.player-B {
+  background-color: blue;
+  /* transform: scale(.5); */
+}
+
+.test {
+  margin: 0 0 0 10px;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size:calc(100px + 4vw);
+  color: white;
+  filter: drop-shadow(.3vmin .3vmin .3vmin rgba(0, 0, 0, 0.5));
+}
+
+.week {
+  margin: 10px;
+  padding: 10px;
+  width: 70vw;
+  min-width: 600px;
+  height: 250px;
+  align-items: center;
+  height: 150px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px
+}
+
+.day {
+  /* border: solid black 5px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: ease-in .2s;
+  border-radius: 1vw;
+  overflow: hidden;
+  filter: drop-shadow(.3vmin .3vmin .3vmin rgba(0, 0, 0, 0.5));
+}
+
+.day-label {
+  padding: 5px;
+  width: 100%;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size:calc(10px + .4vw);
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image {
+  width: 100%;
+}
+
+.day:hover {
+  transform: scale(2);
+  z-index: 1;
+}
