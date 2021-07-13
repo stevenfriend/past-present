@@ -1,7 +1,7 @@
 'use strict'
 
 const engPresent = ["do", "have", "go", "play", "cook", "watch", "read", "make", "study", "wash", "take", "get", "fly", "walk", "listen", "clean", "practice", "win", "build", "visit"];
-const jpnPresent = ["する", "持っている", "行く", "遊ぶ", "料理する", "見る", "読む", "作る", "勉強する", "洗う", "取る", "得る", "飛ぶ", "歩く", "聞く", "そうじする", "練習する", "勝つ", "建てる", " 訪問する"]
+const jpnPresent = ["する", "持っている", "行く", "遊ぶ", "料理する", "見る", "読む", "作る", "勉強する", "洗う", "取る", "もらう", "飛ぶ", "歩く", "聞く", "そうじする", "練習する", "勝つ", "建てる", " 訪問する"]
 
 createTable();
 
@@ -27,7 +27,7 @@ function appendHeading(table, text, className) {
 
 function createVisibilityButton(className) {
 	const visibility = document.createElement("img");
-	visibility.src = './images/visibility_on.svg';
+	visibility.src = './images/visibility_on.png';
 	visibility.addEventListener('click', e => { 
 		handleVisibility(e, className); 
 	});
@@ -38,11 +38,11 @@ function createVisibilityButton(className) {
 function handleVisibility(e, className) {
 	console.log(`.cell.${className}`);
 	if (e.target.className.includes('visible')) {
-		e.target.src = './images/visibility_off.svg';
+		e.target.src = './images/visibility_off.png';
 		e.target.classList.toggle('visible');
 		hideAll(`.cell.${className}`, false);
 	} else {
-		e.target.src = './images/visibility_on.svg';
+		e.target.src = './images/visibility_on.png';
 		e.target.classList.toggle('visible');
 		hideAll(`.cell.${className}`, true);
 	}

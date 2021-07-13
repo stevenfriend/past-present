@@ -2,7 +2,7 @@
 
 const engPresent = ["do", "have", "go", "read", "make", "take", "get", "fly", "win", "build"];
 const engPast = ["did", "had", "went", "read", "made", "took", "got", "flew", "won", "built"];
-const jpnPast = ["した", "持っていた", "行った", "読んだ", "作った", "取った", "得った", "飛んだ", "勝った", "建てた"]
+const jpnPast = ["した", "持っていた", "行った", "読んだ", "作った", "もらった", "得った", "飛んだ", "勝った", "建てた"]
 
 createTable();
 
@@ -12,8 +12,8 @@ function createTable() {
 	appendHeading(table, '過去形', 'eng-past');
 	appendHeading(table, '意味', 'jpn');
 	for (let index in engPresent) {
-		appendCell(table, engPresent[index], 'cell eng', true);
-		appendCell(table, engPast[index], 'cell eng', true);
+		appendCell(table, engPresent[index], 'cell eng-present', true);
+		appendCell(table, engPast[index], 'cell eng-past', true);
 		appendCell(table, jpnPast[index], 'cell jpn', true);
 	}
 }
@@ -30,7 +30,7 @@ function appendHeading(table, text, className) {
 
 function createVisibilityButton(className) {
 	const visibility = document.createElement("img");
-	visibility.src = './images/visibility_on.svg';
+	visibility.src = './images/visibility_on.png';
 	visibility.addEventListener('click', e => { 
 		handleVisibility(e, className); 
 	});
@@ -41,11 +41,11 @@ function createVisibilityButton(className) {
 function handleVisibility(e, className) {
 	console.log(`.cell.${className}`);
 	if (e.target.className.includes('visible')) {
-		e.target.src = './images/visibility_off.svg';
+		e.target.src = './images/visibility_off.png';
 		e.target.classList.toggle('visible');
 		hideAll(`.cell.${className}`, false);
 	} else {
-		e.target.src = './images/visibility_on.svg';
+		e.target.src = './images/visibility_on.png';
 		e.target.classList.toggle('visible');
 		hideAll(`.cell.${className}`, true);
 	}
