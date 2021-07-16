@@ -6,7 +6,15 @@
     <title>What did you do?</title>
   </head>
   <body>
-    <h1>What did you do?</h1>
+    <header> 
+      <div id="score-container">
+        <div id="score-label">SCORE:</div>  
+        <div id="score">00</div>
+      </div>
+      <div id="start">START</div>
+      <div id="timer">01:00</div> 
+    </header>
+
     <div class="container">
       <div class="player player-A">
         <div class="test">A</div>
@@ -33,6 +41,9 @@
         </div>
       </div>
     </div>
+    <svg class="feedback" id="circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="40"/>
+    </svg>
     <script src="scripts/what-did-you-do.js"></script>
   </body>
 </html>
