@@ -2,7 +2,7 @@
 
 const engPresent = ["do", "have", "go", "read", "make", "take", "get", "fly", "win", "build"];
 const engPast = ["did", "had", "went", "read", "made", "took", "got", "flew", "won", "built"];
-const jpnPast = ["した", "持っていた", "行った", "読んだ", "作った", "もらった", "得った", "飛んだ", "勝った", "建てた"]
+const jpnPast = ["した", "持っていた", "行った", "読んだ", "作った", "取った", "もらった", "飛んだ", "勝った", "建てた"]
 
 createTable();
 

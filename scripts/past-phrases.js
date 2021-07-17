@@ -1,7 +1,7 @@
 'use strict'
 
 const engVerbs = ['did', 'had', 'went', 'played', 'cooked', 'watched', 'read', 'made', 'studied', 'washed', 'took', 'got', 'flew', 'walked', 'listened', 'cleaned', 'practiced', 'won', 'built', 'visited'];
-const engPhrases = ['the laundary', 'a picnic',	'to the store',	'a board game',	'dinner', 'a movie', 'a novel', 'a bracelet', 'English', 'the car',	'a test',	'a present', 'a kite',	'the dog',	'to music',	'my desk',	'the violin',	'a race',	'a sandcastle',	'my grandparents'];
+const engPhrases = ['the laundry', 'a picnic',	'to the store',	'a board game',	'dinner', 'a movie', 'a novel', 'a bracelet', 'English', 'the car',	'a test',	'a present', 'a kite',	'the dog',	'to music',	'my desk',	'the violin',	'a race',	'a sandcastle',	'my grandparents'];
 const jpn = ['洗濯をした', 'ピクニックをした', '店に行った', 'ボードゲームをした', '夕食を作った', '映画を見た', '小説を読んだ', 'ブレスレットを作った', '英国語を勉強した', '車を洗った', 'テストを受けた', 'プレゼントをもらった', '凧を飛ばした', '犬の散歩した', '音楽を聞いた', '私の机を掃除した', 'バイオリンを練習した', 'レースに勝った', '砂の城を建てた', '祖父母を訪ねた', ]
 const images = [];
 const phrases = [];
