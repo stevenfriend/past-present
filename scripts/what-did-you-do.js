@@ -1,15 +1,12 @@
 'strict'
 
 const scoreBoard = document.getElementById('score');
+const refresh = document.getElementById('refresh');
 const start = document.getElementById('start');
 const playerA = document.querySelector('.player-A');
 const playerB = document.querySelector('.player-B');
 const weekA = playerA.querySelectorAll('div.day');
 const weekB = playerB.querySelectorAll('div.day');
-const bagA = fillBag();
-const bagB = fillBag();
-const imagesA = getImages();
-const imagesB = getImages();
 const rightAudio = new Audio('./audio/right.mp3');
 const wrongAudio = new Audio('./audio/wrong.mp3');
 const currentPlayer = 'A';
@@ -18,10 +15,67 @@ const timer = {
   total: 61 * 1000
 };
 
+let bagA;
+let bagB;
+let imagesA;
+let imagesB;
 let audioContext;
 let score = 0;
 let ended = false;
 
+getQuestions();
+
+function getQuestions() {
+  bagA = fillBag();
+  bagB = fillBag();
+  imagesA = getImages();
+  imagesB = getImages();
+  fillWeek(weekA, bagA, imagesA);
+  fillWeek(weekB, bagB, imagesB);
+}
+
+addDayEvents(weekA, playerA.querySelector('.sign'));
+addDayEvents(weekB, playerB.querySelector('.sign'));
+
+function addDayEvents(week, sign) {
+  for (let day of week) {
+    addDayAnimation(day);
+    if (day.classList.contains('today-day')) {
+      addTodayAnimation(day, sign);
+    }
+  }
+}
+
+function addDayAnimation(day) {
+  const grow = { transform: 'scale(2)' };
+  const shrink = { transform: 'scale(1)' };
+  const forwards = { duration: 300, easing: 'ease-out', fill: 'forwards' };
+  day.addEventListener('click', () => {
+    day.animate(grow, forwards);
+    day.style.zIndex = '2';
+  });
+  day.addEventListener('mouseleave', () => {
+    day.animate(shrink, forwards).onfinish = function() {
+      day.style.zIndex = '0';
+    };
+  });
+}
+
+function addTodayAnimation(day, sign) {
+  const up = { transform: 'translateY(-40%)' };
+  const down = { transform: 'translateY(20%)' };
+  const forwards = { duration: 300, easing: 'ease-out', fill: 'forwards' };
+  day.addEventListener('click', () => {
+    sign.animate(up, forwards);
+  });
+  day.addEventListener('mouseleave', () => {
+    sign.animate(down, forwards);
+  });
+}
+
+refresh.addEventListener('click', () => {
+  getQuestions();
+});
 
 start.addEventListener('click', () => {
   addSpaceListener();
@@ -31,10 +85,6 @@ start.addEventListener('click', () => {
   requestAnimationFrame(initializeTimer);
   start.innerHTML = 'RESET'
 });
-
-getImages();
-fillWeek(weekA, bagA, imagesA);
-fillWeek(weekB, bagB, imagesB);
 
 function handleSpace(e) {
   if (e.code == 'Space') {
@@ -94,6 +144,9 @@ function getImages() {
 function fillWeek(week, bag, images) {
   for (let i=0; i<7; i++) {
     const pick = Math.floor(Math.random() * bag.length);
+    if (week[i].querySelector('img')) {
+      week[i].replaceChild(images[bag[pick]], week[i].querySelector('img'));
+    };
     week[i].appendChild(images[bag[pick]]);
     bag.splice(pick, 1);
   }
