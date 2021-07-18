@@ -51,8 +51,8 @@ function addDayAnimation(day) {
   const shrink = { transform: 'scale(1)' };
   const forwards = { duration: 300, easing: 'ease-out', fill: 'forwards' };
   day.addEventListener('click', () => {
-    day.animate(grow, forwards);
     day.style.zIndex = '2';
+    day.animate(grow, forwards);
   });
   day.addEventListener('mouseleave', () => {
     day.animate(shrink, forwards).onfinish = function() {
