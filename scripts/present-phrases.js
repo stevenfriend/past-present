@@ -12,12 +12,13 @@ const jpnPhrase = document.querySelector('.jpn-phrase');
 const engPhrase = document.querySelector('.eng-phrase');
 const verbButton = document.querySelector('.verb-button');
 const phraseButton = document.querySelector('.phrase-button');
+const toggleSwitch =  document.querySelector('.toggle-switch');
 const state = { hideVerb: false, hidePhrase: false };
 
 let counter = 0;
 
 getImages();
-makePhrases();
+makeEnglishPhrases();
 addListeners();
 display();
  
@@ -31,7 +32,7 @@ function getImages() {
 	imagePhrase.appendChild(images[counter]);
 }
 
-function makePhrases() {
+function makeEnglishPhrases() {
 	engVerbs.forEach((verb, i) => {
 		const element = document.createElement('p');
 		element.innerHTML = (`<span class="verb">${verb}</span> ${engPhrases[i]}`);
@@ -58,6 +59,10 @@ function addListeners() {
 	navRight.addEventListener('click', () => {
 		increaseCounter();
 		display();
+	});
+	toggleSwitch.addEventListener('change', () => {
+		console.log(jpnPhrase.classList);
+		jpnPhrase.classList.toggle('hidden-japanese');
 	});
 	verbButton.addEventListener('click', e => {
 		e.target.classList.toggle('disabled');
