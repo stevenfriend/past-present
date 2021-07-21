@@ -120,7 +120,8 @@ header {
 
 .sign {
   grid-area: sign;
-  margin: 0 1vw;
+  padding: 0 1vw;
+  width: 80%;
   filter: drop-shadow(.2vmin .2vmin .1vmin rgba(0, 0, 0, .7));
   transform: translateY(20%);
   
