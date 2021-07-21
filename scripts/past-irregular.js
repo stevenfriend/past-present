@@ -39,7 +39,6 @@ function createVisibilityButton(className) {
 }
 
 function handleVisibility(e, className) {
-	console.log(`.cell.${className}`);
 	if (e.target.className.includes('visible')) {
 		e.target.src = './images/visibility_off.png';
 		e.target.classList.toggle('visible');

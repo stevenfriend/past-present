@@ -54,6 +54,7 @@ function enableToggle() {
 }
 
 function addListeners() {
+	document.addEventListener('keydown', handleKeydown);
 	navLeft.addEventListener('click', () => {
 		decreaseCounter();
 		display();
@@ -63,7 +64,6 @@ function addListeners() {
 		display();
 	});
 	toggleSwitch.addEventListener('change', () => {
-		console.log(jpnPhrase.classList);
 		jpnPhrase.classList.toggle('hidden-japanese');
 	});
 	verbButton.addEventListener('click', e => {
@@ -84,6 +84,16 @@ function addListeners() {
 		state.hidePhrase = state.hidePhrase ? false : true;
 		hideText();
 	});
+}
+
+function handleKeydown(e) {
+	if(e.key == 'ArrowLeft') {
+		decreaseCounter();
+		display();
+	} else if (e.key == 'ArrowRight') {
+		increaseCounter();
+		display();
+	}
 }
 
 function decreaseCounter() {
